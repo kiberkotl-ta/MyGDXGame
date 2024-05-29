@@ -1,12 +1,11 @@
 package com.mygdx.game;
 
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -17,17 +16,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 
 public class ImageSliderGame implements Screen {
-    private SpriteBatch batch;
-    private OrthographicCamera camera;
-    private Viewport viewport;
-    private Texture image;
-    private float imageWidth = 100;
-    private float imageHeight = 100;
-
+    private StretchViewport viewport;
     private Skin skin;
     private Stage stage;
     private Texture[] images;
@@ -37,20 +30,15 @@ public class ImageSliderGame implements Screen {
     @Override
     public void show() {
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+        viewport = new StretchViewport(800, 480);
         stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
-
-        batch = new SpriteBatch();
-        camera = new OrthographicCamera();
-        viewport = new FitViewport(imageWidth, imageHeight, camera);
-        viewport.apply();
-        camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
-        camera.update();
 
         images = new Texture[4];
         images[0] = new Texture("Comics Pictures/Photo 1.jpg");
         images[1] = new Texture("Comics Pictures/Photo 2.png");
         images[2] = new Texture("Comics Pictures/Photo 3.png");
         images[3] = new Texture("Comics Pictures/Photo 4.png");
+
 
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
@@ -100,11 +88,6 @@ public class ImageSliderGame implements Screen {
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        batch.draw(image, 0, 0, imageWidth, imageHeight);
-        batch.end();
-
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
@@ -112,7 +95,6 @@ public class ImageSliderGame implements Screen {
     @Override
     public void resize(int width, int height) {
         viewport.update(width, height);
-        camera.position.set(camera.viewportWidth / 2f, camera.viewportHeight / 2f, 0);
     }
 
     @Override
@@ -122,6 +104,7 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void resume() {
+
     }
 
     @Override
@@ -132,10 +115,6 @@ public class ImageSliderGame implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
-
-        batch.dispose();
-        image.dispose();
-
         for (Texture image : images) {
             image.dispose();
         }
