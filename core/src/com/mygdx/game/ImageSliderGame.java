@@ -6,11 +6,16 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -20,6 +25,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 
 public class ImageSliderGame implements Screen {
+    SpriteBatch batch;
+    Texture img1, img2, img3, currentImg;
+
     private StretchViewport viewport;
     private Skin skin;
     private Stage stage;
@@ -29,16 +37,38 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void show() {
+        batch = new SpriteBatch();
+        img1 = new Texture("Comics Pictures/Norm.png");
+        img2 = new Texture("Comics Pictures/You lose.png");
+        img3 = new Texture("Comics Pictures/Win.png");
+        currentImg = img1;
+
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+
+        skin = new Skin();
+        skin.add("default", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        skin.add("scroll", new Texture("scroll.png"));
+
+        Table table = new Table();
+        table.setFillParent(true);
+
+        final ScrollPane scrollPane = new ScrollPane(new Image(currentImg));
+        table.add(scrollPane).expand().fill();
+
+        TextButton button = new TextButton("Switch Image", skin);
+
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         viewport = new StretchViewport(800, 480);
-        stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
+        stage = new Stage(viewport);
 
-        images = new Texture[4];
+        images = new Texture[6];
         images[0] = new Texture("Comics Pictures/Photo 1.jpg");
         images[1] = new Texture("Comics Pictures/Photo 2.png");
         images[2] = new Texture("Comics Pictures/Photo 3.png");
         images[3] = new Texture("Comics Pictures/Photo 4.png");
-
+        images[4] = new Texture("Comics Pictures/Photo 5.png");
+        images[5] = new Texture("Comics Pictures/Photo 6.png");
 
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
@@ -68,6 +98,14 @@ public class ImageSliderGame implements Screen {
         btnNext.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                if (currentImg == img1) {
+                    currentImg = img2;
+                    currentImg = img3;
+                } else {
+                    currentImg = img1;
+                }
+                scrollPane.setWidget(new Image(currentImg));
+
                 if (currentIndex < images.length - 1) {
                     currentIndex++;
                     currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images[currentIndex])));
@@ -75,11 +113,18 @@ public class ImageSliderGame implements Screen {
             }
         });
 
+        table.row();
+        table.add(button).expandX().bottom();
+
+        stage.addActor(table);
+
         stage.addActor(currentImage);
         stage.addActor(btnPrev);
         stage.addActor(btnNext);
 
         Gdx.input.setInputProcessor(stage);
+
+
 
     }
 
@@ -89,6 +134,9 @@ public class ImageSliderGame implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Gdx.graphics.getDeltaTime());
+
+        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+
         stage.draw();
     }
 
@@ -114,9 +162,18 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void dispose() {
+        img1.dispose();
+        img2.dispose();
+        img3.dispose();
+        batch.dispose();
+        stage.dispose();
+        skin.dispose();
+
         stage.dispose();
         for (Texture image : images) {
             image.dispose();
         }
     }
 }
+
+
