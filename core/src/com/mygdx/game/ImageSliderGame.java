@@ -48,7 +48,7 @@ public class ImageSliderGame implements Screen {
 
         skin = new Skin();
         skin.add("default", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        skin.add("scroll", new Texture("scroll.png"));
+
 
         Table table = new Table();
         table.setFillParent(true);
