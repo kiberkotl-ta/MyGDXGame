@@ -71,7 +71,6 @@ public class ImageSliderGame implements Screen {
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
         currentImage.setPosition(Gdx.graphics.getWidth() / 2 - currentImage.getWidth() / 2, Gdx.graphics.getHeight() / 2 - currentImage.getHeight() / 2);
-
         // кнопки для переключения изображений
         TextButtonStyle style = new TextButtonStyle();
         style.up = skin.newDrawable("white", Color.DARK_GRAY);
