@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -27,7 +26,7 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 public class ImageSliderGame implements Screen {
     private SpriteBatch batch;
     private Stage stage;
-    private Skin skin;
+     Skin skin;
     private Texture image1, image2, image3;
     private Image currentImage;
 
@@ -38,6 +37,7 @@ public class ImageSliderGame implements Screen {
     @Override
     public void show() {
 //        Функция исходов
+        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -82,7 +82,7 @@ public class ImageSliderGame implements Screen {
         stage.addActor(currentImage);
 
 //        Комикс
-        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
         viewport = new StretchViewport(800, 480);
         stage = new Stage(viewport);
 
