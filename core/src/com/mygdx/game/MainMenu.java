@@ -43,19 +43,11 @@ public class MainMenu  implements Screen {
     @Override
     public void show() {
         Gdx.app.log(TAG, "Showing screen");
-
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-
-
-
-
-    TextureRegionDrawable texture = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Play.png"))));
-
-
+        TextureRegionDrawable texture = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Play.png"))));
         ImageButton imageButton1 = new ImageButton(texture);
         imageButton1.setSize(100*4,(float)(100*2));
         imageButton1.setPosition(10,Gdx.graphics.getHeight()-50*6);
@@ -64,31 +56,17 @@ public class MainMenu  implements Screen {
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 game.setScreen(new ImageSliderGame());
-//                currentImageIndex = (int) slider.getValue();
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
         });
+
         stage.addActor(imageButton1);
-
-
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = skin.getFont("default-font");
         skin.add("default", textButtonStyle);
-
-        final TextButton textButton = new TextButton("Click Me", skin);
-        textButton.setPosition(100, 100);
-
-        textButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.log("Clicked", "Button Clicked!");
-            }
-        });
-
-        stage.addActor(textButton);
     }
 
     @Override

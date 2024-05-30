@@ -25,38 +25,64 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 
 public class ImageSliderGame implements Screen {
-    SpriteBatch batch;
-    Texture img1, img2, img3, currentImg;
+    private SpriteBatch batch;
+    private Stage stage;
+    private Skin skin;
+    private Texture image1, image2, image3;
+    private Image currentImage;
 
     private StretchViewport viewport;
-    private Skin skin;
-    private Stage stage;
     private Texture[] images;
-    private Image currentImage;
     private int currentIndex;
 
     @Override
     public void show() {
+//        Функция исходов
         batch = new SpriteBatch();
-        img1 = new Texture("Comics Pictures/Norm.png");
-        img2 = new Texture("Comics Pictures/You lose.png");
-        img3 = new Texture("Comics Pictures/Win.png");
-        currentImg = img1;
-
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
+        // Загрузка картинок
+        image1 = new Texture("Comics Pictures/Win.png");
+        image2 = new Texture("Comics Pictures/Norm.png");
+        image3 = new Texture("Comics Pictures/You lose.png");
+
+        // Создание кнопок
+        TextButton button1 = new TextButton("Image 1", skin);
+        button1.setPosition(50, 50);
+        button1.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage = new Image(image1);
+            }
+        });
+
+        TextButton button2 = new TextButton("Image 2", skin);
+        button2.setPosition(150, 50);
+        button2.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage = new Image(image2);
+            }
+        });
+
+        TextButton button3 = new TextButton("Image 3", skin);
+        button3.setPosition(250, 50);
+        button3.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage = new Image(image3);
+            }
+        });
+
+// Добавление элементов на сцену
+        stage.addActor(button1);
+        stage.addActor(button2);
+        stage.addActor(button3);
+        stage.addActor(currentImage);
+
+//        Комикс
         skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
-
-        Table table = new Table();
-        table.setFillParent(true);
-
-        final ScrollPane scrollPane = new ScrollPane(new Image(currentImg));
-        table.add(scrollPane).expand().fill();
-
-        TextButton button = new TextButton("Switch Image", skin);
-
-
         viewport = new StretchViewport(800, 480);
         stage = new Stage(viewport);
 
@@ -71,6 +97,7 @@ public class ImageSliderGame implements Screen {
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
         currentImage.setPosition(Gdx.graphics.getWidth() / 2 - currentImage.getWidth() / 2, Gdx.graphics.getHeight() / 2 - currentImage.getHeight() / 2);
+
         // кнопки для переключения изображений
         TextButtonStyle style = new TextButtonStyle();
         style.up = skin.newDrawable("white", Color.DARK_GRAY);
@@ -95,14 +122,6 @@ public class ImageSliderGame implements Screen {
         btnNext.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (currentImg == img1) {
-                    currentImg = img2;
-                    currentImg = img3;
-                } else {
-                    currentImg = img1;
-                }
-                scrollPane.setWidget(new Image(currentImg));
-
                 if (currentIndex < images.length - 1) {
                     currentIndex++;
                     currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images[currentIndex])));
@@ -110,19 +129,11 @@ public class ImageSliderGame implements Screen {
             }
         });
 
-        table.row();
-        table.add(button).expandX().bottom();
-
-        stage.addActor(table);
-
         stage.addActor(currentImage);
         stage.addActor(btnPrev);
         stage.addActor(btnNext);
 
         Gdx.input.setInputProcessor(stage);
-
-
-
     }
 
     @Override
@@ -159,14 +170,13 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void dispose() {
-        img1.dispose();
-        img2.dispose();
-        img3.dispose();
+//        Исходы
         batch.dispose();
         stage.dispose();
-        skin.dispose();
+        image1.dispose();
+        image2.dispose();
+        image3.dispose();
 
-        stage.dispose();
         for (Texture image : images) {
             image.dispose();
         }
