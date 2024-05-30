@@ -46,9 +46,7 @@ public class ImageSliderGame implements Screen {
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
-        skin = new Skin();
-        skin.add("default", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        skin.add("scroll", new Texture("scroll.png"));
+        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         Table table = new Table();
         table.setFillParent(true);
@@ -58,7 +56,7 @@ public class ImageSliderGame implements Screen {
 
         TextButton button = new TextButton("Switch Image", skin);
 
-        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+
         viewport = new StretchViewport(800, 480);
         stage = new Stage(viewport);
 
