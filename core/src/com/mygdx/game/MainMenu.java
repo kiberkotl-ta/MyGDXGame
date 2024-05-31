@@ -48,9 +48,27 @@ public class MainMenu  implements Screen {
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
         TextureRegionDrawable texture = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Play.png"))));
+
         ImageButton imageButton1 = new ImageButton(texture);
         imageButton1.setSize(100*4,(float)(100*2));
         imageButton1.setPosition(10,Gdx.graphics.getHeight()-50*6);
+
+        TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Easy.png"))));
+        ImageButton imageButton2 = new ImageButton(texture);
+        imageButton2.setSize(100*4,(float)(100*2));
+        imageButton2.setPosition(10,Gdx.graphics.getHeight()-50*6);
+        imageButton2.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                game.setScreen(new ImageSliderGame());
+            }
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+        });
+
         imageButton1.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -68,6 +86,7 @@ public class MainMenu  implements Screen {
         textButtonStyle.font = skin.getFont("default-font");
         skin.add("default", textButtonStyle);
     }
+
 
     @Override
     public void render(float delta) {

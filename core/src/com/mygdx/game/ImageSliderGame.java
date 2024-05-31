@@ -46,58 +46,58 @@ public class ImageSliderGame implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
-
-        // Загрузка картинок
-        image1 = new Texture("Comics Pictures/Easy 1.png");
-//        image1 = new Texture("Comics Pictures/Easy 2.png");
-//        image1 = new Texture("Comics Pictures/Easy 3.png");
-//        image1 = new Texture("Comics Pictures/Easy 4.png");
-
-        image2 = new Texture("Comics Pictures/Norm 1.png");
-//        image2 = new Texture("Comics Pictures/Norm 2.png");
-//        image2 = new Texture("Comics Pictures/Norm 3.png");
-
-        image3 = new Texture("Comics Pictures/Hard 1.png");
-//        image3 = new Texture("Comics Pictures/Hard 2.png");
-//        image3 = new Texture("Comics Pictures/Hard 3.png");
-//        image3 = new Texture("Comics Pictures/Hard 4.png");
-//        image3 = new Texture("Comics Pictures/Hard 5.png");
-
-        currentImage = new Image();
-
-        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
-
-        // Создание кнопок
-        ImageButton button1 = new ImageButton(skin);
-        button1.setPosition(100, 100);
-        button1.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
-            }
-        });
-
-        ImageButton button2 = new ImageButton(skin);
-        button2.setPosition(250, 100);
-        button2.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
-            }
-        });
-
-        ImageButton button3 = new ImageButton(skin);
-        button3.setPosition(400, 100);
-        button3.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
-            }
-        });
-
-        stage.addActor(button1);
-        stage.addActor(button2);
-        stage.addActor(button3);
+//
+//        // Загрузка картинок
+//        image1 = new Texture("Comics Pictures/Easy 1.png");
+////        image1 = new Texture("Comics Pictures/Easy 2.png");
+////        image1 = new Texture("Comics Pictures/Easy 3.png");
+////        image1 = new Texture("Comics Pictures/Easy 4.png");
+//
+//        image2 = new Texture("Comics Pictures/Norm 1.png");
+////        image2 = new Texture("Comics Pictures/Norm 2.png");
+////        image2 = new Texture("Comics Pictures/Norm 3.png");
+//
+//        image3 = new Texture("Comics Pictures/Hard 1.png");
+////        image3 = new Texture("Comics Pictures/Hard 2.png");
+////        image3 = new Texture("Comics Pictures/Hard 3.png");
+////        image3 = new Texture("Comics Pictures/Hard 4.png");
+////        image3 = new Texture("Comics Pictures/Hard 5.png");
+//
+//        currentImage = new Image();
+//
+//        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
+//
+//        // Создание кнопок
+//        ImageButton button1 = new ImageButton(skin);
+//        button1.setPosition(100, 100);
+//        button1.addListener(new ClickListener() {
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
+//            }
+//        });
+//
+//        ImageButton button2 = new ImageButton(skin);
+//        button2.setPosition(250, 100);
+//        button2.addListener(new ClickListener() {
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
+//            }
+//        });
+//
+//        ImageButton button3 = new ImageButton(skin);
+//        button3.setPosition(400, 100);
+//        button3.addListener(new ClickListener() {
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
+//            }
+//        });
+//
+//        stage.addActor(button1);
+//        stage.addActor(button2);
+//        stage.addActor(button3);
 
 //        Комикс
         viewport = new StretchViewport(800, 480);
