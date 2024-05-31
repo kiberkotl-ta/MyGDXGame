@@ -49,19 +49,19 @@ public class ImageSliderGame implements Screen {
 
         // Загрузка картинок
         image1 = new Texture("Comics Pictures/Easy 1.png");
-        image1 = new Texture("Comics Pictures/Easy 2.png");
-        image1 = new Texture("Comics Pictures/Easy 3.png");
-        image1 = new Texture("Comics Pictures/Easy 4.png");
+//        image1 = new Texture("Comics Pictures/Easy 2.png");
+//        image1 = new Texture("Comics Pictures/Easy 3.png");
+//        image1 = new Texture("Comics Pictures/Easy 4.png");
 
         image2 = new Texture("Comics Pictures/Norm 1.png");
-        image2 = new Texture("Comics Pictures/Norm 2.png");
-        image2 = new Texture("Comics Pictures/Norm 3.png");
+//        image2 = new Texture("Comics Pictures/Norm 2.png");
+//        image2 = new Texture("Comics Pictures/Norm 3.png");
 
         image3 = new Texture("Comics Pictures/Hard 1.png");
-        image3 = new Texture("Comics Pictures/Hard 2.png");
-        image3 = new Texture("Comics Pictures/Hard 3.png");
-        image3 = new Texture("Comics Pictures/Hard 4.png");
-        image3 = new Texture("Comics Pictures/Hard 5.png");
+//        image3 = new Texture("Comics Pictures/Hard 2.png");
+//        image3 = new Texture("Comics Pictures/Hard 3.png");
+//        image3 = new Texture("Comics Pictures/Hard 4.png");
+//        image3 = new Texture("Comics Pictures/Hard 5.png");
 
         currentImage = new Image();
 
