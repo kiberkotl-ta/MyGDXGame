@@ -14,7 +14,6 @@ public class MyGdxGame extends Game {
 
 	@Override
 	public void create () {
-//		setScreen(new Alchemy());
 		setScreen(new MainMenu(this));
 
 	}

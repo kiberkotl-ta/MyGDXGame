@@ -33,7 +33,6 @@ public class ImageSliderGame implements Screen {
     private Image currentImage;
 
 
-
     private StretchViewport viewport;
     private Texture[] images;
     private int currentIndex;
@@ -49,9 +48,20 @@ public class ImageSliderGame implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         // Загрузка картинок
-        image1 = new Texture("Comics Pictures/Win.png");
-        image2 = new Texture("Comics Pictures/Norm.png");
-        image3 = new Texture("Comics Pictures/You lose.png");
+        image1 = new Texture("Comics Pictures/Easy 1.png");
+        image1 = new Texture("Comics Pictures/Easy 2.png");
+        image1 = new Texture("Comics Pictures/Easy 3.png");
+        image1 = new Texture("Comics Pictures/Easy 4.png");
+
+        image2 = new Texture("Comics Pictures/Norm 1.png");
+        image2 = new Texture("Comics Pictures/Norm 2.png");
+        image2 = new Texture("Comics Pictures/Norm 3.png");
+
+        image3 = new Texture("Comics Pictures/Hard 1.png");
+        image3 = new Texture("Comics Pictures/Hard 2.png");
+        image3 = new Texture("Comics Pictures/Hard 3.png");
+        image3 = new Texture("Comics Pictures/Hard 4.png");
+        image3 = new Texture("Comics Pictures/Hard 5.png");
 
         currentImage = new Image();
 
@@ -93,13 +103,16 @@ public class ImageSliderGame implements Screen {
         viewport = new StretchViewport(800, 480);
         stage = new Stage(viewport);
 
-        images = new Texture[6];
+        images = new Texture[9];
         images[0] = new Texture("Comics Pictures/Photo 1.jpg");
         images[1] = new Texture("Comics Pictures/Photo 2.png");
         images[2] = new Texture("Comics Pictures/Photo 3.png");
         images[3] = new Texture("Comics Pictures/Photo 4.png");
         images[4] = new Texture("Comics Pictures/Photo 5.png");
         images[5] = new Texture("Comics Pictures/Photo 6.png");
+        images[6] = new Texture("Comics Pictures/Photo 7.png");
+        images[7] = new Texture("Comics Pictures/Photo 8.png");
+        images[8] = new Texture("Comics Pictures/Photo 9.png");
 
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
@@ -146,7 +159,7 @@ public class ImageSliderGame implements Screen {
     @Override
     public void render(float delta) {
         batch.begin();
-        batch.draw(currentImage, 0, 0);
+//        batch.draw(currentImage, 0, 0);
         batch.end();
 
         Gdx.gl.glClearColor(1, 1, 1, 1);
