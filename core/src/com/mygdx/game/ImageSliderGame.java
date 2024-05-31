@@ -91,7 +91,6 @@ public class ImageSliderGame implements Screen {
         stage.addActor(button3);
 
 //        Комикс
-
         viewport = new StretchViewport(800, 480);
         stage = new Stage(viewport);
 
