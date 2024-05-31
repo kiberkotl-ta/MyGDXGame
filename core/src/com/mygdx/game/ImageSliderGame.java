@@ -30,15 +30,19 @@ public class ImageSliderGame implements Screen {
     private SpriteBatch batch;
     private Stage stage;
     private Texture image1, image2, image3;
-    private Image currentImage = new Image();
+    private Image currentImage;
+
 
 
     private StretchViewport viewport;
     private Texture[] images;
     private int currentIndex;
 
+
     @Override
     public void show() {
+        ImageSliderGame game = new ImageSliderGame();
+
 //        Функция исходов
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
@@ -50,7 +54,9 @@ public class ImageSliderGame implements Screen {
         image2 = new Texture("Comics Pictures/Norm.png");
         image3 = new Texture("Comics Pictures/You lose.png");
 
-        currentImage = image1; // Устанавливаем начальное отображаемое изображение
+        currentImage = new Image();
+
+        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
 
         // Создание кнопок
         ImageButton button1 = new ImageButton(skin);
@@ -58,7 +64,7 @@ public class ImageSliderGame implements Screen {
         button1.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = image1; // Обновляем текущее изображение
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
             }
         });
 
@@ -67,7 +73,7 @@ public class ImageSliderGame implements Screen {
         button2.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = image2; // Обновляем текущее изображение
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
             }
         });
 
@@ -76,7 +82,7 @@ public class ImageSliderGame implements Screen {
         button3.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = image3; // Обновляем текущее изображение
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
             }
         });
 
@@ -141,6 +147,10 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void render(float delta) {
+        batch.begin();
+        batch.draw(currentImage, 0, 0);
+        batch.end();
+
         Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
