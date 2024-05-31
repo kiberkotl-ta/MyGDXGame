@@ -51,23 +51,74 @@ public class MainMenu  implements Screen {
 
         ImageButton imageButton1 = new ImageButton(texture);
         imageButton1.setSize(100*4,(float)(100*2));
-        imageButton1.setPosition(10,Gdx.graphics.getHeight()-50*6);
+        imageButton1.setPosition(10,Gdx.graphics.getHeight()-40*6);
 
-        TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Easy.png"))));
-        ImageButton imageButton2 = new ImageButton(texture);
+        //        3 кнопка
+        TextureRegionDrawable texture4 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Hard.png"))));
+
+        ImageButton imageButton4 = new ImageButton(texture4);
+        imageButton4.setSize(100*4,(float)(100*2));
+        imageButton4.setPosition(10, Gdx.graphics.getHeight()-80*7);
+        imageButton4.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                game.setScreen(new ImageSliderGame());
+            }
+
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+        });
+
+// 4 кнопка на сцену
+        stage.addActor(imageButton4);
+
+        //        3 кнопка
+        TextureRegionDrawable texture3 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Norm.png"))));
+
+        ImageButton imageButton3 = new ImageButton(texture3);
+        imageButton3.setSize(100*4,(float)(100*2));
+        imageButton3.setPosition(10, Gdx.graphics.getHeight()-70*7);
+        imageButton3.addListener(new InputListener(){
+            @Override
+            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
+                super.touchUp(event, x, y, pointer, button);
+                game.setScreen(new ImageSliderGame());
+            }
+
+            @Override
+            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
+                return true;
+            }
+        });
+
+// 3 кнопка на сцену
+        stage.addActor(imageButton3);
+
+
+//        2 кнопка
+        TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Easy.png"))));
+
+        ImageButton imageButton2 = new ImageButton(texture2);
         imageButton2.setSize(100*4,(float)(100*2));
-        imageButton2.setPosition(10,Gdx.graphics.getHeight()-50*6);
+        imageButton2.setPosition(10, Gdx.graphics.getHeight()-60*7);
         imageButton2.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
                 game.setScreen(new ImageSliderGame());
             }
+
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
         });
+
+// 2 кнопка на сцену
+        stage.addActor(imageButton2);
 
         imageButton1.addListener(new InputListener(){
             @Override
