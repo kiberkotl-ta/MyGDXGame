@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -18,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -26,9 +29,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 public class ImageSliderGame implements Screen {
     private SpriteBatch batch;
     private Stage stage;
-     Skin skin;
     private Texture image1, image2, image3;
-    private Image currentImage;
+    private Image currentImage = new Image();
+
 
     private StretchViewport viewport;
     private Texture[] images;
@@ -37,7 +40,7 @@ public class ImageSliderGame implements Screen {
     @Override
     public void show() {
 //        Функция исходов
-        skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
+        Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -47,39 +50,39 @@ public class ImageSliderGame implements Screen {
         image2 = new Texture("Comics Pictures/Norm.png");
         image3 = new Texture("Comics Pictures/You lose.png");
 
+        currentImage = image1; // Устанавливаем начальное отображаемое изображение
+
         // Создание кнопок
-        TextButton button1 = new TextButton("Image 1", skin);
-        button1.setPosition(50, 50);
+        ImageButton button1 = new ImageButton(skin);
+        button1.setPosition(100, 100);
         button1.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image1);
+                currentImage = image1; // Обновляем текущее изображение
             }
         });
 
-        TextButton button2 = new TextButton("Image 2", skin);
-        button2.setPosition(150, 50);
+        ImageButton button2 = new ImageButton(skin);
+        button2.setPosition(250, 100);
         button2.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image2);
+                currentImage = image2; // Обновляем текущее изображение
             }
         });
 
-        TextButton button3 = new TextButton("Image 3", skin);
-        button3.setPosition(250, 50);
+        ImageButton button3 = new ImageButton(skin);
+        button3.setPosition(400, 100);
         button3.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image3);
+                currentImage = image3; // Обновляем текущее изображение
             }
         });
 
-// Добавление элементов на сцену
         stage.addActor(button1);
         stage.addActor(button2);
         stage.addActor(button3);
-        stage.addActor(currentImage);
 
 //        Комикс
 
