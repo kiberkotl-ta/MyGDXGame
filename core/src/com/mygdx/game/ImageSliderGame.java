@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -18,6 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -26,9 +28,9 @@ import com.badlogic.gdx.utils.viewport.StretchViewport;
 public class ImageSliderGame implements Screen {
     private SpriteBatch batch;
     private Stage stage;
-     Skin skin;
+    private Skin skin;
     private Texture image1, image2, image3;
-    private Image currentImage;
+    private Image currentImage = new Image();
 
     private StretchViewport viewport;
     private Texture[] images;
@@ -53,7 +55,7 @@ public class ImageSliderGame implements Screen {
         button1.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image1);
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));
             }
         });
 
@@ -62,7 +64,7 @@ public class ImageSliderGame implements Screen {
         button2.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image2);
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2)));
             }
         });
 
@@ -71,7 +73,7 @@ public class ImageSliderGame implements Screen {
         button3.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                currentImage = new Image(image3);
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3)));
             }
         });
 
@@ -79,7 +81,10 @@ public class ImageSliderGame implements Screen {
         stage.addActor(button1);
         stage.addActor(button2);
         stage.addActor(button3);
-        stage.addActor(currentImage);
+
+        if (currentImage != null) {
+            stage.addActor(currentImage);
+        }
 
 //        Комикс
 
