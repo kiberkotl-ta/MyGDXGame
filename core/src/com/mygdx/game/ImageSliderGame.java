@@ -38,7 +38,6 @@ public class ImageSliderGame implements Screen {
     private Texture[] images;
     private int currentIndex;
 
-
     @Override
     public void show() {
         ImageSliderGame game = new ImageSliderGame();
