@@ -97,7 +97,6 @@ public class MainMenu  implements Screen {
 // 3 кнопка на сцену
         stage.addActor(imageButton3);
 
-
 //        2 кнопка
         TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Easy.png"))));
 
