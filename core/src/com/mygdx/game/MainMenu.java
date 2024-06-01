@@ -63,7 +63,7 @@ public class MainMenu  implements Screen {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                game.setScreen(new ImageSliderGame());
+                game.setScreen(new ImageSliderGame(4));
             }
 
             @Override
@@ -85,7 +85,7 @@ public class MainMenu  implements Screen {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                game.setScreen(new ImageSliderGame());
+                game.setScreen(new ImageSliderGame(3));
             }
 
             @Override
@@ -108,7 +108,7 @@ public class MainMenu  implements Screen {
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                game.setScreen(new ImageSliderGame());
+                game.setScreen(new ImageSliderGame(2));
             }
 
             @Override
@@ -117,14 +117,14 @@ public class MainMenu  implements Screen {
             }
         });
 
-// 2 кнопка на сцену
+// 1 кнопка на сцену
         stage.addActor(imageButton2);
 
         imageButton1.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                game.setScreen(new ImageSliderGame());
+                game.setScreen(new ImageSliderGame(1));
             }
             @Override
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {

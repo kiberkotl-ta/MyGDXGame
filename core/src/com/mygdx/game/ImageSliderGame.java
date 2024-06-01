@@ -26,103 +26,83 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+import java.util.ArrayList;
+
 
 public class ImageSliderGame implements Screen {
     private SpriteBatch batch;
     private Stage stage;
-    private Texture image1, image2, image3;
     private Image currentImage;
 
 
     private StretchViewport viewport;
-    private Texture[] images;
+    private ArrayList<Texture> images;
     private int currentIndex;
+
+    int numberButton;
+
+    public ImageSliderGame(int numberButton) {
+        this.numberButton = numberButton;
+    }
 
     @Override
     public void show() {
-        ImageSliderGame game = new ImageSliderGame();
-
 //        Функция исходов
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
-        stage = new Stage();
+        viewport = new StretchViewport(800, 480);
+        stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
 
 //        // Загрузка картинок
-        image1 = new Texture("Comics Pictures/Easy 1.png");
-
-        image1 = new Texture("Comics Pictures/Easy 2.png");
-        image1 = new Texture("Comics Pictures/Easy 3.png");
-        image1 = new Texture("Comics Pictures/Easy 4.png");
 
 
-        image2 = new Texture("Comics Pictures/Norm 1.png");
+//        image2 = new Texture("Comics Pictures/Norm 1.png");
+//
+//        image2 = new Texture("Comics Pictures/Norm 2.png");
+//        image2 = new Texture("Comics Pictures/Norm 3.png");
+//
+//
+//        image3 = new Texture("Comics Pictures/Hard 1.png");
+//
+//        image3 = new Texture("Comics Pictures/Hard 2.png");
+//        image3 = new Texture("Comics Pictures/Hard 3.png");
+//        image3 = new Texture("Comics Pictures/Hard 4.png");
+//        image3 = new Texture("Comics Pictures/Hard 5.png");
 
-        image2 = new Texture("Comics Pictures/Norm 2.png");
-        image2 = new Texture("Comics Pictures/Norm 3.png");
-
-
-        image3 = new Texture("Comics Pictures/Hard 1.png");
-
-        image3 = new Texture("Comics Pictures/Hard 2.png");
-        image3 = new Texture("Comics Pictures/Hard 3.png");
-        image3 = new Texture("Comics Pictures/Hard 4.png");
-        image3 = new Texture("Comics Pictures/Hard 5.png");
-
+//        Комикс
+        images = new ArrayList<>();
+        images.add(new Texture("Comics Pictures/Photo 1.jpg"));
+        images.add(new Texture("Comics Pictures/Photo 2.png"));
+        images.add(new Texture("Comics Pictures/Photo 3.png"));
+        images.add(new Texture("Comics Pictures/Photo 4.png"));
+        images.add(new Texture("Comics Pictures/Photo 5.png"));
+        images.add(new Texture("Comics Pictures/Photo 6.png"));
+        images.add(new Texture("Comics Pictures/Photo 7.png"));
+        images.add(new Texture("Comics Pictures/Photo 8.png"));
+        images.add(new Texture("Comics Pictures/Photo 9.png"));
 
         currentImage = new Image();
 
-        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
+//        currentImage.setDrawable(new SpriteDrawable(new Sprite(images.get(0)))); // Устанавливаем начальное отображаемое изображение
 
-        // Создание кнопок
-        ImageButton button1 = new ImageButton(skin);
-        button1.setPosition(100, 100);
-        button1.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
-            }
-        });
-
-        ImageButton button2 = new ImageButton(skin);
-        button2.setPosition(250, 100);
-        button2.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
-            }
-        });
-
-        ImageButton button3 = new ImageButton(skin);
-        button3.setPosition(400, 100);
-        button3.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
-            }
-        });
-
-        stage.addActor(button1);
-        stage.addActor(button2);
-        stage.addActor(button3);
-
-//        Комикс
-        viewport = new StretchViewport(800, 480);
-        stage = new Stage(viewport);
-
-        images = new Texture[9];
-        images[0] = new Texture("Comics Pictures/Photo 1.jpg");
-        images[1] = new Texture("Comics Pictures/Photo 2.png");
-        images[2] = new Texture("Comics Pictures/Photo 3.png");
-        images[3] = new Texture("Comics Pictures/Photo 4.png");
-        images[4] = new Texture("Comics Pictures/Photo 5.png");
-        images[5] = new Texture("Comics Pictures/Photo 6.png");
-        images[6] = new Texture("Comics Pictures/Photo 7.png");
-        images[7] = new Texture("Comics Pictures/Photo 8.png");
-        images[8] = new Texture("Comics Pictures/Photo 9.png");
+        switch (numberButton) {
+            case 1:
+                break;
+            case 2:
+                images.add(new Texture("Comics Pictures/Easy 1.png"));
+                images.add(new Texture("Comics Pictures/Easy 2.png"));
+                images.add(new Texture("Comics Pictures/Easy 3.png"));
+                images.add(new Texture("Comics Pictures/Easy 4.png"));
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
 
         currentIndex = 0;
-        currentImage = new Image(images[currentIndex]);
+        currentImage = new Image(images.get(currentIndex));
         currentImage.setPosition((float) Gdx.graphics.getWidth() / 2 - currentImage.getWidth() / 2, (float) Gdx.graphics.getHeight() / 2 - currentImage.getHeight() / 2);
 
         // кнопки для переключения изображений
@@ -138,7 +118,7 @@ public class ImageSliderGame implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 if (currentIndex > 0) {
                     currentIndex--;
-                    currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images[currentIndex])));
+                    currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images.get(currentIndex))));
                 }
             }
         });
@@ -149,9 +129,9 @@ public class ImageSliderGame implements Screen {
         btnNext.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if (currentIndex < images.length - 1) {
+                if (currentIndex < images.size() - 1) {
                     currentIndex++;
-                    currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images[currentIndex])));
+                    currentImage.setDrawable(new TextureRegionDrawable(new TextureRegion(images.get(currentIndex))));
                 }
             }
         });
@@ -204,9 +184,6 @@ public class ImageSliderGame implements Screen {
 //        Исходы
         batch.dispose();
         stage.dispose();
-        image1.dispose();
-        image2.dispose();
-        image3.dispose();
 
         for (Texture image : images) {
             image.dispose();
