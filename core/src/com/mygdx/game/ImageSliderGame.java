@@ -5,24 +5,25 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+
+
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
+
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
 
@@ -46,58 +47,64 @@ public class ImageSliderGame implements Screen {
         batch = new SpriteBatch();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
-//
+
 //        // Загрузка картинок
-//        image1 = new Texture("Comics Pictures/Easy 1.png");
-////        image1 = new Texture("Comics Pictures/Easy 2.png");
-////        image1 = new Texture("Comics Pictures/Easy 3.png");
-////        image1 = new Texture("Comics Pictures/Easy 4.png");
-//
-//        image2 = new Texture("Comics Pictures/Norm 1.png");
-////        image2 = new Texture("Comics Pictures/Norm 2.png");
-////        image2 = new Texture("Comics Pictures/Norm 3.png");
-//
-//        image3 = new Texture("Comics Pictures/Hard 1.png");
-////        image3 = new Texture("Comics Pictures/Hard 2.png");
-////        image3 = new Texture("Comics Pictures/Hard 3.png");
-////        image3 = new Texture("Comics Pictures/Hard 4.png");
-////        image3 = new Texture("Comics Pictures/Hard 5.png");
-//
-//        currentImage = new Image();
-//
-//        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
-//
-//        // Создание кнопок
-//        ImageButton button1 = new ImageButton(skin);
-//        button1.setPosition(100, 100);
-//        button1.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
-//            }
-//        });
-//
-//        ImageButton button2 = new ImageButton(skin);
-//        button2.setPosition(250, 100);
-//        button2.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
-//            }
-//        });
-//
-//        ImageButton button3 = new ImageButton(skin);
-//        button3.setPosition(400, 100);
-//        button3.addListener(new ClickListener() {
-//            @Override
-//            public void clicked(InputEvent event, float x, float y) {
-//                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
-//            }
-//        });
-//
-//        stage.addActor(button1);
-//        stage.addActor(button2);
-//        stage.addActor(button3);
+        image1 = new Texture("Comics Pictures/Easy 1.png");
+
+        image1 = new Texture("Comics Pictures/Easy 2.png");
+        image1 = new Texture("Comics Pictures/Easy 3.png");
+        image1 = new Texture("Comics Pictures/Easy 4.png");
+
+
+        image2 = new Texture("Comics Pictures/Norm 1.png");
+
+        image2 = new Texture("Comics Pictures/Norm 2.png");
+        image2 = new Texture("Comics Pictures/Norm 3.png");
+
+
+        image3 = new Texture("Comics Pictures/Hard 1.png");
+
+        image3 = new Texture("Comics Pictures/Hard 2.png");
+        image3 = new Texture("Comics Pictures/Hard 3.png");
+        image3 = new Texture("Comics Pictures/Hard 4.png");
+        image3 = new Texture("Comics Pictures/Hard 5.png");
+
+
+        currentImage = new Image();
+
+        currentImage.setDrawable(new SpriteDrawable(new Sprite(image1))); // Устанавливаем начальное отображаемое изображение
+
+        // Создание кнопок
+        ImageButton button1 = new ImageButton(skin);
+        button1.setPosition(100, 100);
+        button1.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image1)));// Обновляем текущее изображение
+            }
+        });
+
+        ImageButton button2 = new ImageButton(skin);
+        button2.setPosition(250, 100);
+        button2.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image2))); // Обновляем текущее изображение
+            }
+        });
+
+        ImageButton button3 = new ImageButton(skin);
+        button3.setPosition(400, 100);
+        button3.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentImage.setDrawable(new SpriteDrawable(new Sprite(image3))); // Обновляем текущее изображение
+            }
+        });
+
+        stage.addActor(button1);
+        stage.addActor(button2);
+        stage.addActor(button3);
 
 //        Комикс
         viewport = new StretchViewport(800, 480);
@@ -116,7 +123,7 @@ public class ImageSliderGame implements Screen {
 
         currentIndex = 0;
         currentImage = new Image(images[currentIndex]);
-        currentImage.setPosition(Gdx.graphics.getWidth() / 2 - currentImage.getWidth() / 2, Gdx.graphics.getHeight() / 2 - currentImage.getHeight() / 2);
+        currentImage.setPosition((float) Gdx.graphics.getWidth() / 2 - currentImage.getWidth() / 2, (float) Gdx.graphics.getHeight() / 2 - currentImage.getHeight() / 2);
 
         // кнопки для переключения изображений
         TextButtonStyle style = new TextButtonStyle();
@@ -159,7 +166,7 @@ public class ImageSliderGame implements Screen {
     @Override
     public void render(float delta) {
         batch.begin();
-//        batch.draw(currentImage, 0, 0);
+        currentImage.draw(batch, 1);
         batch.end();
 
         Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -206,5 +213,3 @@ public class ImageSliderGame implements Screen {
         }
     }
 }
-
-
