@@ -54,22 +54,6 @@ public class ImageSliderGame implements Screen {
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
 
-//        // Загрузка картинок
-
-
-//        image2 = new Texture("Comics Pictures/Norm 1.png");
-//
-//        image2 = new Texture("Comics Pictures/Norm 2.png");
-//        image2 = new Texture("Comics Pictures/Norm 3.png");
-//
-//
-//        image3 = new Texture("Comics Pictures/Hard 1.png");
-//
-//        image3 = new Texture("Comics Pictures/Hard 2.png");
-//        image3 = new Texture("Comics Pictures/Hard 3.png");
-//        image3 = new Texture("Comics Pictures/Hard 4.png");
-//        image3 = new Texture("Comics Pictures/Hard 5.png");
-
 //        Комикс
         images = new ArrayList<>();
         images.add(new Texture("Comics Pictures/Photo 1.jpg"));
@@ -95,9 +79,19 @@ public class ImageSliderGame implements Screen {
                 images.add(new Texture("Comics Pictures/Easy 3.png"));
                 images.add(new Texture("Comics Pictures/Easy 4.png"));
                 break;
+
             case 3:
+                images.add(new Texture("Comics Pictures/Norm 1.png"));
+                images.add(new Texture("Comics Pictures/Norm 2.png"));
+                images.add(new Texture("Comics Pictures/Norm 3.png"));
                 break;
+
             case 4:
+                images.add(new Texture("Comics Pictures/Hard 1.png"));
+                images.add(new Texture("Comics Pictures/Hard 2.png"));
+                images.add(new Texture("Comics Pictures/Hard 3.png"));
+                images.add(new Texture("Comics Pictures/Hard 4.png"));
+                images.add(new Texture("Comics Pictures/Hard 5.png"));
                 break;
         }
 

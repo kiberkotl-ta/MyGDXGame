@@ -21,9 +21,5 @@ import com.mygdx.game.MyGdxGame;
 		config.setForegroundFPS(60);
 		config.setTitle("My GDX Game");
 		new Lwjgl3Application(new MyGdxGame(), config);
-
-//		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-//		// Регистрация стиля для ImageButton
-//		skin.add("default", new ImageButton.ImageButtonStyle());
 	}
 }
