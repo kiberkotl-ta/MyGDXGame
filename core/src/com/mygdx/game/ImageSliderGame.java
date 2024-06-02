@@ -174,7 +174,6 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void hide() {
-
     }
 
     @Override
