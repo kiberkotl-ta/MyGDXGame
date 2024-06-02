@@ -69,8 +69,10 @@ public class ImageSliderGame implements Screen {
         currentImage = new Image();
 
          switch (numberButton) {
+             case 1:
+                 break;
 
-            case 3:
+            case 2:
                 images.add(new Texture("Comics Pictures/Easy 1.png"));
                 images.add(new Texture("Comics Pictures/Easy 2.png"));
                 images.add(new Texture("Comics Pictures/Easy 3.png"));
@@ -87,14 +89,13 @@ public class ImageSliderGame implements Screen {
 
 
 
-            case 2:
+            case 3:
                 images.add(new Texture("Comics Pictures/Norm 1.png"));
                 images.add(new Texture("Comics Pictures/Norm 2.png"));
                 images.add(new Texture("Comics Pictures/Norm 3.png"));
                 break;
 
-             case 1:
-                 break;
+
         }
 
 
