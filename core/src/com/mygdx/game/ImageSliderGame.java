@@ -122,8 +122,8 @@ public class ImageSliderGame implements Screen {
         });
 
         TextButton btnNext = new TextButton("Next", style);
-        btnNext.setPosition(Gdx.graphics.getWidth() - 120, 20);
-        btnNext.setSize(90, 50);
+        btnNext.setPosition(Gdx.graphics.getWidth() - 50, 20);
+        btnNext.setSize(50, 50);
         btnNext.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
