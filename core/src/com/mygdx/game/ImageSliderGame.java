@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 
-import com.badlogic.gdx.graphics.g2d.Sprite;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -15,13 +15,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
+
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import com.badlogic.gdx.utils.viewport.StretchViewport;
@@ -68,23 +68,15 @@ public class ImageSliderGame implements Screen {
 
         currentImage = new Image();
 
-//        currentImage.setDrawable(new SpriteDrawable(new Sprite(images.get(0)))); // Устанавливаем начальное отображаемое изображение
+         switch (numberButton) {
 
-        switch (numberButton) {
-            case 1:
-                break;
-            case 2:
+            case 3:
                 images.add(new Texture("Comics Pictures/Easy 1.png"));
                 images.add(new Texture("Comics Pictures/Easy 2.png"));
                 images.add(new Texture("Comics Pictures/Easy 3.png"));
                 images.add(new Texture("Comics Pictures/Easy 4.png"));
                 break;
 
-            case 3:
-                images.add(new Texture("Comics Pictures/Norm 1.png"));
-                images.add(new Texture("Comics Pictures/Norm 2.png"));
-                images.add(new Texture("Comics Pictures/Norm 3.png"));
-                break;
 
             case 4:
                 images.add(new Texture("Comics Pictures/Hard 1.png"));
@@ -92,8 +84,19 @@ public class ImageSliderGame implements Screen {
                 images.add(new Texture("Comics Pictures/Hard 3.png"));
                 images.add(new Texture("Comics Pictures/Hard 4.png"));
                 images.add(new Texture("Comics Pictures/Hard 5.png"));
+
+
+
+            case 2:
+                images.add(new Texture("Comics Pictures/Norm 1.png"));
+                images.add(new Texture("Comics Pictures/Norm 2.png"));
+                images.add(new Texture("Comics Pictures/Norm 3.png"));
                 break;
+
+             case 1:
+                 break;
         }
+
 
         currentIndex = 0;
         currentImage = new Image(images.get(currentIndex));
