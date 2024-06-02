@@ -71,7 +71,7 @@ public class MainMenu  implements Screen {
         TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Easy.png"))));
 
         ImageButton imageButton2 = new ImageButton(texture2);
-        imageButton2.setSize(100*4,(float)(100*2));
+        imageButton2.setSize(192,52);
         imageButton2.setPosition(10, Gdx.graphics.getHeight()-60*20);
         imageButton2.addListener(new InputListener(){
             @Override
@@ -92,7 +92,7 @@ public class MainMenu  implements Screen {
         TextureRegionDrawable texture3 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Norm.png"))));
 
         ImageButton imageButton3 = new ImageButton(texture3);
-        imageButton3.setSize(100*4,(float)(100*2));
+        imageButton3.setSize(192,52);
         imageButton3.setPosition(10, Gdx.graphics.getHeight()-70*30);
         imageButton3.addListener(new InputListener(){
             @Override
@@ -113,7 +113,7 @@ public class MainMenu  implements Screen {
         TextureRegionDrawable texture4 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Hard.png"))));
 
         ImageButton imageButton4 = new ImageButton(texture4);
-        imageButton4.setSize(100*4,(float)(100*2));
+        imageButton4.setSize(192,52);
         imageButton4.setPosition(10, Gdx.graphics.getHeight()-80*40);
         imageButton4.addListener(new InputListener(){
             @Override
