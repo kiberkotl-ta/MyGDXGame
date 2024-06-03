@@ -50,7 +50,7 @@ public class ImageSliderGame implements Screen {
 //        Функция исходов
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
-        viewport = new StretchViewport(800, 480);
+        viewport = new StretchViewport(800, 280);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
 
