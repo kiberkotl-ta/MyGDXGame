@@ -79,15 +79,12 @@ public class ImageSliderGame implements Screen {
                 images.add(new Texture("Comics Pictures/Easy 4.png"));
                 break;
 
-
             case 4:
                 images.add(new Texture("Comics Pictures/Hard 1.png"));
                 images.add(new Texture("Comics Pictures/Hard 2.png"));
                 images.add(new Texture("Comics Pictures/Hard 3.png"));
                 images.add(new Texture("Comics Pictures/Hard 4.png"));
                 images.add(new Texture("Comics Pictures/Hard 5.png"));
-
-
 
             case 3:
                 images.add(new Texture("Comics Pictures/Norm 1.png"));
@@ -97,7 +94,6 @@ public class ImageSliderGame implements Screen {
 
 
         }
-
 
         currentIndex = 0;
         currentImage = new Image(images.get(currentIndex));
@@ -122,8 +118,8 @@ public class ImageSliderGame implements Screen {
         });
 
         TextButton btnNext = new TextButton("Next", style);
-        btnNext.setPosition(Gdx.graphics.getWidth() - 50, 20);
-        btnNext.setSize(50, 50);
+        btnNext.setPosition(Gdx.graphics.getWidth() - 30, 20);
+        btnNext.setSize(100, 50);
         btnNext.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -174,6 +170,7 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void hide() {
+
     }
 
     @Override
