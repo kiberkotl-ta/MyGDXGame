@@ -26,7 +26,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.StretchViewport;
+
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
@@ -124,8 +124,7 @@ public class ImageSliderGame implements Screen {
             }
         });
 
-
-        btnNext.setPosition(Gdx.graphics.getWidth() - 30, 20);
+        btnNext.setPosition(Gdx.graphics.getWidth() -120, 20);
         btnNext.setSize(100, 50);
         btnNext.addListener(new ClickListener() {
             @Override
