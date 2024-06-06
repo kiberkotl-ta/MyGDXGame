@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 
 
@@ -24,7 +25,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.util.ArrayList;
 
@@ -34,8 +37,10 @@ public class ImageSliderGame implements Screen {
     private Stage stage;
     private Image currentImage;
 
+    private Viewport viewport;
+    private OrthographicCamera camera;
 
-    private StretchViewport viewport;
+
     private ArrayList<Texture> images;
     private int currentIndex;
 
@@ -50,7 +55,9 @@ public class ImageSliderGame implements Screen {
 //        Функция исходов
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         batch = new SpriteBatch();
-        viewport = new StretchViewport(800, 280);
+        camera = new OrthographicCamera();
+
+        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), camera);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
 
@@ -139,12 +146,16 @@ public class ImageSliderGame implements Screen {
 
     @Override
     public void render(float delta) {
+
+
+        camera.update();
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.setProjectionMatrix(camera.combined);
+
         batch.begin();
         currentImage.draw(batch, 1);
         batch.end();
-
-        Gdx.gl.glClearColor(1, 1, 1, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act(Gdx.graphics.getDeltaTime());
 
