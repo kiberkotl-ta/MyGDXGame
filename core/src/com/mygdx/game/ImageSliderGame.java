@@ -92,7 +92,6 @@ public class ImageSliderGame implements Screen {
                 images.add(new Texture("Comics Pictures/Norm 3.png"));
                 break;
 
-
         }
 
         currentIndex = 0;
@@ -105,6 +104,7 @@ public class ImageSliderGame implements Screen {
         style.down = skin.newDrawable("white", Color.LIGHT_GRAY);
         style.font = skin.getFont("default-font");
         TextButton btnPrev = new TextButton("Prev", style);
+        TextButton btnNext = new TextButton("Next", style);
         btnPrev.setPosition(20, 20);
         btnPrev.setSize(100, 50);
         btnPrev.addListener(new ClickListener() {
@@ -117,7 +117,7 @@ public class ImageSliderGame implements Screen {
             }
         });
 
-        TextButton btnNext = new TextButton("Next", style);
+
         btnNext.setPosition(Gdx.graphics.getWidth() - 30, 20);
         btnNext.setSize(100, 50);
         btnNext.addListener(new ClickListener() {
