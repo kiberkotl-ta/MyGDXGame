@@ -51,7 +51,7 @@ public class MainMenu  implements Screen {
 
         ImageButton imageButton1 = new ImageButton(texture);
         imageButton1.setSize(192,52);
-        imageButton1.setPosition(10,Gdx.graphics.getHeight()-10);
+        imageButton1.setPosition(10,Gdx.graphics.getHeight()-20*5);
 
         imageButton1.addListener(new InputListener(){
             @Override
@@ -72,7 +72,7 @@ public class MainMenu  implements Screen {
 
         ImageButton imageButton2 = new ImageButton(texture2);
         imageButton2.setSize(192,52);
-        imageButton2.setPosition(10, Gdx.graphics.getHeight()-20*7);
+        imageButton2.setPosition(10, Gdx.graphics.getHeight()-30*7);
         imageButton2.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -93,7 +93,7 @@ public class MainMenu  implements Screen {
 
         ImageButton imageButton3 = new ImageButton(texture3);
         imageButton3.setSize(192,52);
-        imageButton3.setPosition(10, Gdx.graphics.getHeight()-30*7);
+        imageButton3.setPosition(10, Gdx.graphics.getHeight()-40*7);
         imageButton3.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -114,7 +114,7 @@ public class MainMenu  implements Screen {
 
         ImageButton imageButton4 = new ImageButton(texture4);
         imageButton4.setSize(192,52);
-        imageButton4.setPosition(10, Gdx.graphics.getHeight()-40*7);
+        imageButton4.setPosition(10, Gdx.graphics.getHeight()-50*7);
         imageButton4.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
