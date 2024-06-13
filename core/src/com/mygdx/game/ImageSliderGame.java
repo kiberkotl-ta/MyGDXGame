@@ -101,7 +101,6 @@ public class ImageSliderGame implements Screen {
                 images.add(new Texture("Comics Pictures/Norm 2.png"));
                 images.add(new Texture("Comics Pictures/Norm 3.png"));
                 break;
-
         }
 
         currentIndex = 0;
