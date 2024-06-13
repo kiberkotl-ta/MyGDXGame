@@ -72,6 +72,8 @@ public class ImageSliderGame implements Screen {
         images.add(new Texture("Comics Pictures/Photo 7.png"));
         images.add(new Texture("Comics Pictures/Photo 8.png"));
         images.add(new Texture("Comics Pictures/Photo 9.png"));
+        images.add(new Texture("Comics Pictures/Photo 10.png"));
+        images.add(new Texture("Comics Pictures/Photo 11.png"));
 
         currentImage = new Image();
 
