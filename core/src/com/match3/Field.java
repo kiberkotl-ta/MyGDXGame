@@ -79,9 +79,9 @@ public class Field {
         return matches;
     }
 
-    public void removeMatches(List matches) {
-        for (Match match : matches) {
-            for (Vector2 position : match.getTiles()) {
+    public void removeMatches(List match) {
+        for (Match  : matches) {
+            for (Vector position : match.getTiles()) {
                 tiles[(int) position.x][(int) position.y] = null;
             }
         }
