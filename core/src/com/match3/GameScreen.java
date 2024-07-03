@@ -47,7 +47,7 @@ public class GameScreen extends ScreenAdapter {
 
         List matches = field.findMatches();
         if (!matches.isEmpty()) {
-            field.removeMatches(matches);
+//            field.removeMatches(matches);
             field.fallDownTiles();
             field.refillEmptyTiles();
         }

@@ -21,10 +21,10 @@ public class AnimatedImage {
         }
     }
 
-    public void draw(SpriteBatch batch, float x, float y) {
-        TextureRegion currentFrame = animation.getKeyFrame(stateTime, true);
-        batch.draw(currentFrame, x, y);
-    }
+//    public void draw(SpriteBatch batch, float x, float y) {
+//        TextureRegion currentFrame = animation.getKeyFrame(stateTime, true);
+//        batch.draw(currentFrame, x, y);
+//    }
 
     public void play() {
         isPlaying = true;

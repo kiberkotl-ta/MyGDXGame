@@ -79,13 +79,7 @@ public class Field {
         return matches;
     }
 
-    public void removeMatches(List match) {
-        for (Match  : matches) {
-            for (Vector position : match.getTiles()) {
-                tiles[(int) position.x][(int) position.y] = null;
-            }
-        }
-    }
+
 
     public void fallDownTiles() {
         for (int x = 0; x < width; x++) {

@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class MyGdxGame extends Game {
 
-
 	@Override
 	public void create () {
 		setScreen(new MainMenu(this));
