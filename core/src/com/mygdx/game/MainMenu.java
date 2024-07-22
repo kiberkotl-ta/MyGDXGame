@@ -23,6 +23,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.match3.GameWindow;
 
 public class MainMenu  implements Screen {
     private static final String TAG = MainMenu.class.getSimpleName();
@@ -34,7 +35,7 @@ public class MainMenu  implements Screen {
 
     public MainMenu(Game game) {
         this.game = game;
-        Gdx.app.log(TAG, "new MyGdxGame ");
+        Gdx.app.log(TAG, "new MyGdxGame");
         Camera camera = new OrthographicCamera();
         Gdx.input.setInputProcessor(stage);
         skin = new Skin();
@@ -84,6 +85,7 @@ public class MainMenu  implements Screen {
             public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
                 return true;
             }
+
         });
 
         stage.addActor(imageButton2);
@@ -135,6 +137,7 @@ public class MainMenu  implements Screen {
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = skin.getFont("default-font");
         skin.add("default", textButtonStyle);
+
     }
 
 
