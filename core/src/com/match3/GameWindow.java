@@ -16,7 +16,6 @@ public class GameWindow extends MyGdxGame {
     public void create() {
         batch = new SpriteBatch();
         setScreen(new GameScreen(this));
-//        setScreen(new GameWindow());
     }
 
     public void startGame() {

@@ -9,14 +9,15 @@ public class Tile {
 
     private int x;
     private int y;
-    private int type;
-    private Texture texture;
+    private final int type;
+    private final Texture texture;
 
     public Tile(int x, int y, int type) {
         this.x = x;
         this.y = y;
         this.type = type;
-        this.texture = new Texture(Gdx.files.internal("красный" + type + ".png"));
+        
+        this.texture = new Texture(Gdx.files.internal(("red" + type + ".png")));
     }
 
     public void draw(SpriteBatch batch, int tileSize) {
