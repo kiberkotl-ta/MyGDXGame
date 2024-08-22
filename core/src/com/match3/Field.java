@@ -1,7 +1,5 @@
 package com.match3;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
@@ -23,9 +21,8 @@ public class Field extends Table implements Disposable {
     private static final int RANK = 8;
     private final Array<TextureAtlas.AtlasRegion> entities;
     private final Array<Tile> activeTiles = new Array(64);
-    private final Sound click;
-    private final Sound swapWrong;
-    private final Sound swapSuccess;
+
+
     private final ClickListener clickListener;
     private final Action afterMatch;
 
@@ -34,9 +31,7 @@ public class Field extends Table implements Disposable {
     }
 
     public Field(TextureRegion background, Array<TextureAtlas.AtlasRegion> sprites) {
-        this.click = Gdx.audio.newSound(Gdx.files.internal("sound/touch_glass.ogg"));
-        this.swapWrong = Gdx.audio.newSound(Gdx.files.internal("sound/swap_wrong.ogg"));
-        this.swapSuccess = Gdx.audio.newSound(Gdx.files.internal("sound/swap_success.ogg"));
+
         this.clickListener = new ClickListener() {
             Tile firstClick;
             int count = 0;
@@ -60,7 +55,7 @@ public class Field extends Table implements Disposable {
             };
 
             public void clicked(InputEvent event, float x, float y) {
-                Field.this.click.play(0.3F, 3.0F, 0.0F);
+
                 Tile target = (Tile)event.getTarget();
                 if (this.firstClick != null) {
                     target.clearActions();
@@ -73,7 +68,7 @@ public class Field extends Table implements Disposable {
                         target.addAction(Actions.moveTo(this.firstClick.getX(), this.firstClick.getY(), 0.2F));
                         this.firstClick.addAction(Actions.sequence(Actions.moveTo(target.getX(), target.getY(), 0.2F), this.afterSwap));
                     } else {
-                        Field.this.swapWrong.play(0.2F, 1.0F, 0.0F);
+
                         Field.this.activeTiles.swap(tileIndex1, tileIndex2);
                         target.addAction(Actions.sequence(Actions.moveTo(this.firstClick.getX(), this.firstClick.getY(), 0.1F), Actions.moveTo(target.getX(), target.getY(), 0.1F)));
                         this.firstClick.addAction(Actions.sequence(Actions.moveTo(target.getX(), target.getY(), 0.1F), Actions.moveTo(this.firstClick.getX(), this.firstClick.getY(), 0.1F), this.afterSwap));
@@ -240,7 +235,6 @@ public class Field extends Table implements Disposable {
         }
 
         if (hasMatch) {
-            this.swapSuccess.play(0.2F, 1.0F, 0.0F);
             j = 1;
 
             for(Iterator var8 = this.activeTiles.select((tilex) -> {
@@ -312,8 +306,6 @@ public class Field extends Table implements Disposable {
     }
 
     public void dispose() {
-        this.click.dispose();
-        this.swapWrong.dispose();
-        this.swapSuccess.dispose();
+        this.dispose();
     }
 }
