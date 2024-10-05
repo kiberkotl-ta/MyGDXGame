@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.mygdx.game.MyGdxGame;
 
 import java.util.Iterator;
 
@@ -27,7 +28,6 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void show() {
-
 
         final GameWindow window = this.game.getWindow();
         final Table mainTable = new Table();

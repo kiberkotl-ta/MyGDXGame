@@ -15,10 +15,10 @@ public class MatchThree extends Game {
     private TextureAtlas textureAtlas;
     private FileHandle recordsFile;
 
-    public MatchThree() {
-    }
 
     public void create() {
+
+
         this.textureAtlas = new TextureAtlas("skin/red.png");
         this.textureAtlas = new TextureAtlas("skin/Playing area.png");
         this.stage = new Stage();

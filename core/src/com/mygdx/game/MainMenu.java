@@ -41,32 +41,13 @@ public class MainMenu  implements Screen {
         Gdx.input.setInputProcessor(stage);
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
 
-        TextureRegionDrawable texture = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("Play.png"))));
-
-        ImageButton imageButton1 = new ImageButton(texture);
-        imageButton1.setSize(192,52);
-        imageButton1.setPosition(10,Gdx.graphics.getHeight()-10*5);
-
-        imageButton1.addListener(new InputListener(){
-            @Override
-            public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
-                super.touchUp(event, x, y, pointer, button);
-                game.setScreen(new ImageSliderGame(1));
-            }
-            @Override
-            public boolean touchDown (InputEvent event, float x, float y, int pointer, int button) {
-                return true;
-            }
-        });
-
-        stage.addActor(imageButton1);
-
         //        2 кнопка
         TextureRegionDrawable texture2 = new TextureRegionDrawable(new TextureRegion(new Texture(Gdx.files.internal("skin/Easy.png"))));
 
         ImageButton imageButton2 = new ImageButton(texture2);
         imageButton2.setSize(192,52);
         imageButton2.setPosition(10, Gdx.graphics.getHeight()-20*7);
+
         imageButton2.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -89,6 +70,7 @@ public class MainMenu  implements Screen {
         ImageButton imageButton3 = new ImageButton(texture3);
         imageButton3.setSize(192,52);
         imageButton3.setPosition(10, Gdx.graphics.getHeight()-30*7);
+
         imageButton3.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
@@ -110,6 +92,7 @@ public class MainMenu  implements Screen {
         ImageButton imageButton4 = new ImageButton(texture4);
         imageButton4.setSize(192,52);
         imageButton4.setPosition(10, Gdx.graphics.getHeight()-40*7 );
+
         imageButton4.addListener(new InputListener(){
             @Override
             public void touchUp (InputEvent event, float x, float y, int pointer, int button) {
