@@ -63,17 +63,17 @@ public class ImageSliderGame implements Screen {
 
 //        Комикс
         images = new ArrayList<>();
-        images.add(new Texture("Comics Pictures/Photo 1.jpg"));
-        images.add(new Texture("Comics Pictures/Photo 2.png"));
-        images.add(new Texture("Comics Pictures/Photo 3.png"));
-        images.add(new Texture("Comics Pictures/Photo 4.png"));
-        images.add(new Texture("Comics Pictures/Photo 5.png"));
-        images.add(new Texture("Comics Pictures/Photo 6.png"));
-        images.add(new Texture("Comics Pictures/Photo 7.png"));
-        images.add(new Texture("Comics Pictures/Photo 8.png"));
-        images.add(new Texture("Comics Pictures/Photo 9.png"));
-        images.add(new Texture("Comics Pictures/Photo 10.png"));
-        images.add(new Texture("Comics Pictures/Photo 11.png"));
+        images.add(new Texture("Comics Pictures/Page1.png"));
+        images.add(new Texture("Comics Pictures/Page2.png"));
+        images.add(new Texture("Comics Pictures/Page3.png"));
+        images.add(new Texture("Comics Pictures/Page4.png"));
+        images.add(new Texture("Comics Pictures/Page5.png"));
+        images.add(new Texture("Comics Pictures/Page6.png"));
+        images.add(new Texture("Comics Pictures/Page7.png"));
+        images.add(new Texture("Comics Pictures/Page8.png"));
+        images.add(new Texture("Comics Pictures/Page9.png"));
+        images.add(new Texture("Comics Pictures/Page10.png"));
+
 
         currentImage = new Image();
 
@@ -82,24 +82,16 @@ public class ImageSliderGame implements Screen {
                  break;
 
             case 2:
-                images.add(new Texture("Comics Pictures/Easy 1.png"));
-                images.add(new Texture("Comics Pictures/Easy 2.png"));
-                images.add(new Texture("Comics Pictures/Easy 3.png"));
-                images.add(new Texture("Comics Pictures/Easy 4.png"));
+                images.add(new Texture("Comics Pictures/Win.png"));
                 break;
 
             case 4:
-                images.add(new Texture("Comics Pictures/Hard 1.png"));
+                images.add(new Texture("Comics Pictures/Hard.png"));
                 images.add(new Texture("Comics Pictures/Hard 2.png"));
-                images.add(new Texture("Comics Pictures/Hard 3.png"));
-                images.add(new Texture("Comics Pictures/Hard 4.png"));
-                images.add(new Texture("Comics Pictures/Hard 5.png"));
                 break;
 
             case 3:
-                images.add(new Texture("Comics Pictures/Norm 1.png"));
-                images.add(new Texture("Comics Pictures/Norm 2.png"));
-                images.add(new Texture("Comics Pictures/Norm 3.png"));
+                images.add(new Texture("Comics Pictures/Norm.png"));
                 break;
         }
 

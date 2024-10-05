@@ -6,6 +6,7 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mygdx.game.MainMenu;
 
 public class MatchThree extends Game {
     private Skin skin;
@@ -18,6 +19,7 @@ public class MatchThree extends Game {
     }
 
     public void create() {
+        setScreen(new GameScreen(this));
         this.textureAtlas = new TextureAtlas("skin/red.png");
         this.textureAtlas = new TextureAtlas("skin/Playing area.png");
         this.stage = new Stage();
