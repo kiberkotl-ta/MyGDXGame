@@ -1,8 +1,5 @@
 package com.match3;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Graphics;
-import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Window;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -12,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
+
 import com.badlogic.gdx.utils.Scaling;
 
 public class GameWindow extends Window {
@@ -44,18 +41,6 @@ public class GameWindow extends Window {
                 position.x = stage.stageToScreenCoordinates(new Vector2(x, y)).x;
                 position.y = stage.stageToScreenCoordinates(new Vector2(x, y)).y;
                 return super.touchDown(event, x, y, pointer, button);
-            }
-        });
-        this.getTitleTable().addListener(new DragListener() {
-            public void drag(InputEvent event, float x, float y, int pointer) {
-                Lwjgl3Window mainWindow = ((Lwjgl3Graphics) Gdx.graphics).getWindow();
-                int thisX = mainWindow.getPositionX();
-                int thisY = mainWindow.getPositionY();
-                int movedX = (int)((float)thisX + stage.stageToScreenCoordinates(new Vector2(x, y)).x - ((float)thisX + position.x));
-                int movedY = (int)((float)thisY + stage.stageToScreenCoordinates(new Vector2(x, y)).y - ((float)thisY + position.y));
-                int X = thisX + movedX;
-                int Y = thisY + movedY;
-                mainWindow.setPosition(X, Y);
             }
         });
     }

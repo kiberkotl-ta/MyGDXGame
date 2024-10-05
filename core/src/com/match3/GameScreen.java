@@ -82,7 +82,7 @@ public class GameScreen extends ScreenAdapter {
                             saveBtn.setSize(60.0F, 30.0F);
                             saveBtn.addListener(new ChangeListener() {
                                 public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                                    GameScreen.this.game.playClick();
+
                                     window.removeActor(mainTable);
                                     GameScreen.this.writeNewRecord(textField.getText(), GameScreen.this.field.getScore());
 
@@ -105,7 +105,7 @@ public class GameScreen extends ScreenAdapter {
         TextButton menuBtn = new TextButton("Menu", this.game.getSkin());
         menuBtn.addListener(new ChangeListener() {
             public void changed(ChangeListener.ChangeEvent event, Actor actor) {
-                GameScreen.this.game.playClick();
+
                 window.removeActor(mainTable);
 
             }
