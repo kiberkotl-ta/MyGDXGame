@@ -15,8 +15,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-
-
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -25,8 +23,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
-import com.badlogic.gdx.utils.viewport.FitViewport;
-
+import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.match3.MatchThree;
 
@@ -58,7 +55,7 @@ public class ImageSliderGame implements Screen {
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
 
-        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), camera);
+        viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), camera);
         stage = new Stage(viewport);
         Gdx.input.setInputProcessor(stage);
 
