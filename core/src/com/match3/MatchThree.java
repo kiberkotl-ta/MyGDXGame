@@ -19,8 +19,6 @@ public class MatchThree extends Game {
     }
 
     public void create() {
-        setScreen(new GameScreen(this));
-
         this.textureAtlas = new TextureAtlas("skin/red.png");
         this.textureAtlas = new TextureAtlas("skin/Playing area.png");
         this.stage = new Stage();

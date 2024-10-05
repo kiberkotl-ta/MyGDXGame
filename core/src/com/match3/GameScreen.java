@@ -27,6 +27,8 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void show() {
+        setScreen(new MatchThree(this));
+
         final GameWindow window = this.game.getWindow();
         final Table mainTable = new Table();
         mainTable.addAction(Actions.sequence(Actions.fadeOut(0.01F), Actions.fadeIn(1.0F)));
