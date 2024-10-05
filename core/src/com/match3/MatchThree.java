@@ -18,8 +18,7 @@ public class MatchThree extends Game {
     }
 
     public void create() {
-        this.skin = new Skin(Gdx.files.internal("skin/OS Eight.json"));
-        this.textureAtlas = new TextureAtlas("skin/Elements Match 3");
+        this.textureAtlas = new TextureAtlas("skin/red.png");
         this.textureAtlas = new TextureAtlas("skin/Playing area.png");
         this.stage = new Stage();
         Gdx.input.setInputProcessor(this.stage);

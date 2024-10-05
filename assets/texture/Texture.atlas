@@ -116,11 +116,20 @@ table
   offset: 0, 0
   index: -1
 
-Textures2.png
+Playing area.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+
+Elements Match 3.png
+<ImageView
+    android:background="@android:color/transparent"
+    android:id="@+id/category_item"
+    android:layout_width="90dp"
+    android:layout_height="90dp"
+    android:layout_gravity="center" />
+
 entity
   rotate: false
   xy: 966, 564

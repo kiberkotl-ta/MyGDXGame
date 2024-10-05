@@ -117,11 +117,18 @@ table
   offset: 0, 0
   index: -1
 
-Textures2.png
+playing area.png.png
 size: 2048,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+
+Elements Match 3.png
+size: 256,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+
 entity
   rotate: false
   xy: 966, 564
