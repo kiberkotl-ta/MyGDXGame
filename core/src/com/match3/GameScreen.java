@@ -27,7 +27,7 @@ public class GameScreen extends ScreenAdapter {
     }
 
     public void show() {
-        setScreen(new MatchThree(this));
+
 
         final GameWindow window = this.game.getWindow();
         final Table mainTable = new Table();

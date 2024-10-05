@@ -8,13 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.match3.MatchThree;
 
 public class MyGdxGame extends Game {
 
 	@Override
 	public void create () {
 		setScreen(new MainMenu(this));
-
+		setScreen(new MatchThree(this));
 	}
 
 	@Override
